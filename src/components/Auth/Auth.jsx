@@ -30,7 +30,7 @@ const Auth = () => {
 	const handleSubmit = async e => {
 		e.preventDefault();
 
-		const URL = `http://localhost:5000/auth/${isSignup ? 'signup' : 'login'}`;
+		const URL = `${process.env.REACT_APP_HEROKU_URL}/auth/${isSignup ? 'signup' : 'login'}`;
 
 		const {data: {token, userId, hashedPassword, fullName}} = await axios.post(URL, {
 			...form, fullName: form.fullName,
